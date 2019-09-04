@@ -31,11 +31,14 @@ Enjoy! Now you can generate invoices and packaging slips with sequential numbers
 ---
 
 ## Configuration
+0. Make sure to include Open Sans fonts for TTF support. Include following styles normal, italic, bold_italic, bold.
+
+  Copy font files into assets/fonts folder
 
 1. Set the logo path preference to include your store / company logo.
 
   ```ruby
-  Spree::PrintInvoice::Config.set(logo_path: '/path/to/public/images/company-logo.png')
+  Spree::PrintInvoice::Config[:logo_path] = Rails.root.join('app', 'assets', 'images', 'header', 'logo.png')
   ```
 
 2. Add your own own footer texts to the locale. The current footer works with `:footer_left1` , `:footer_left2` and `:footer_right1`, `:footer_right2` where the 1 version is on the left in bold, and the 2 version the "value" on the right.
