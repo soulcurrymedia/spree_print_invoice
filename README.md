@@ -31,6 +31,19 @@ Enjoy! Now you can generate invoices and packaging slips with sequential numbers
 ---
 
 ## Configuration
+0. Add Invoice creation callbacks in your order decorator. Order decorator defined in the gem doesn't seems to work.
+
+  ```ruby
+  state_machine do
+    after_transition to: :complete, do: :invoice_for_order
+  end
+
+  def invoice_for_order
+    bookkeeping_documents.create(template: 'invoice')
+    bookkeeping_documents.create(template: 'packaging_slip')
+  end
+  ```
+
 0. Make sure to include Open Sans fonts for TTF support. Include following styles normal, italic, bold_italic, bold.
 
   Copy font files into assets/fonts folder
