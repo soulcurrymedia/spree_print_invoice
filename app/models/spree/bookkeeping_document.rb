@@ -114,6 +114,16 @@ module Spree
       ).render(template: "#{template_name}.pdf.prawn")
     end
 
+    # Based on envrionment set the source to find the app assets
+    # Both object accepts `assets` method
+    def assets_source
+      if Rails.env.development?
+        Rails.application
+      else
+        Rails.application.assets_manifest
+      end
+    end
+
     private
 
     def copy_view_attributes
