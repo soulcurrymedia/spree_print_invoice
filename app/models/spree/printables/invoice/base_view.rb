@@ -67,7 +67,6 @@ module Spree
     private
 
     def formatted_number
-      byebug
       if (Object.const_get('::Spree::PrintInvoice::NumberFormatter') rescue false)
         ::Spree::PrintInvoice::NumberFormatter.new(next_number, printable).to_s
       else
