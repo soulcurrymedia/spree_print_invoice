@@ -10,9 +10,8 @@ module SpreePrintInvoice
   module VERSION
     MAJOR = 3
     MINOR = 0
-    TINY  = 0
-    PRE   = 'beta'
+    TINY  = 1
 
-    STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
+    STRING = [MAJOR, MINOR, TINY].compact.join('.')
   end
 end
