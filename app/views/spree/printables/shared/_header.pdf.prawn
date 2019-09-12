@@ -1,7 +1,9 @@
-im = Rails.root.join("public", "assets", printable.assets_source.assets[Spree::PrintInvoice::Config[:logo_path]].pathname)
+manifest = printable.assets_source
+logo_file = File.join(manifest.dir, manifest.assets[Spree::PrintInvoice::Config[:logo_path]])
 
-if im && File.exist?(im)
-  pdf.image im, vposition: :top, height: 40, scale: Spree::PrintInvoice::Config[:logo_scale]
+
+if logo_file && File.exist?(logo_file)
+  pdf.image logo_file, vposition: :top, height: 40, scale: Spree::PrintInvoice::Config[:logo_scale]
 end
 
 pdf.grid([0,3], [1,4]).bounding_box do
