@@ -14,6 +14,8 @@ module Spree
       printable.line_items.map do |item|
         Spree::Printables::Invoice::Item.new(
           sku: item.variant.sku,
+          product_identifier: item.product.identifier,
+          thumbnail_url: item.product_thumbnail_url,
           name: item.variant.name,
           options_text: item.variant.options_text,
           price: item.price,
