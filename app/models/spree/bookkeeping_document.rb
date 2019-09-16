@@ -149,7 +149,7 @@ module Spree
     # Renders and stores it if it's not yet present.
     #
     def send_or_create_pdf
-      unless File.exist?(file_path)
+      if Rails.env.development? || !File.exist?(file_path)
         File.open(file_path, 'wb') { |f| f.puts render_pdf }
       end
 
