@@ -62,6 +62,8 @@ Enjoy! Now you can generate invoices and packaging slips with sequential numbers
 
   Copy font files into assets/fonts folder
 
+0.2 To Avoid asset suffling in dev and production envs, we expect the same to be in the app/public folder.
+
 1. Set the logo path preference to include your store / company logo. Simple string with one top level folder to easily find in manifest list.
 
   ```ruby

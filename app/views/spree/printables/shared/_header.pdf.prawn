@@ -1,6 +1,6 @@
 manifest = printable.assets_source
-logo_file = File.join(manifest.dir, manifest.assets[Spree::PrintInvoice::Config[:logo_path]])
 
+logo_file = File.join(Rails.root.join(Spree::PrintInvoice::Config[:logo_path]))
 
 if logo_file && File.exist?(logo_file)
   pdf.image logo_file, vposition: :top, height: 40, scale: Spree::PrintInvoice::Config[:logo_scale]
