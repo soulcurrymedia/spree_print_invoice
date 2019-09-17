@@ -21,6 +21,7 @@ module Spree
 
     before_create :copy_view_attributes
     after_save :after_save_actions
+    after_save :create_pdf
 
     # An instance of Spree::Printable::#{YourModel}::#{YourTemplate}Presenter
     #
@@ -149,11 +150,14 @@ module Spree
     # Renders and stores it if it's not yet present.
     #
     def send_or_create_pdf
+      create_pdf
+      IO.binread(file_path)
+    end
+
+    def create_pdf
       if Rails.env.development? || !File.exist?(file_path)
         File.open(file_path, 'wb') { |f| f.puts render_pdf }
       end
-
-      IO.binread(file_path)
     end
   end
 end
