@@ -2,7 +2,7 @@ module Spree
   class Printables::Invoice::Item
     extend Spree::DisplayMoney
 
-    attr_accessor :sku, :product_identifier, :thumbnail_url, :name, :options_text, :price, :quantity, :total
+    attr_accessor :sku, :product_identifier, :thumbnail_url, :name, :options_text, :price, :quantity, :total, :subscribed?
 
     money_methods :price, :total
 
