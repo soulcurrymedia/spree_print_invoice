@@ -6,6 +6,8 @@ font_style = {
 # Rails.root.join("public", "assets", Rails.application.assets['OpenSans-Regular.ttf'].pathname)
 
 prawn_document(force_download: true) do |pdf|
+  pdf.font_families.update(Spree::PrintInvoiceSetting.additional_fonts)
+
   pdf.font_families.update( "Open Sans" => {
     normal: Rails.root.join('app', 'assets/fonts', 'OpenSans-Regular.ttf').to_s,
     bold: Rails.root.join('app', 'assets/fonts', 'OpenSans-Bold.ttf').to_s,
