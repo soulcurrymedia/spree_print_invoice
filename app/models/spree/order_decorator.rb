@@ -43,7 +43,6 @@ module Spree
 
     def invoice_for_order
       bookkeeping_documents.create(template: 'invoice')
-      bookkeeping_documents.create(template: 'packaging_slip')
     end
   end
 end
